@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example</title>
+    <script src="..\src\css-auto-transition-min.js"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            position: relative;
+            max-width: 45%;
+        }
+        .container img{
+           width: 100%;
+        }
+
+        .overlay{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 1.5rem;
+
+        }
+        .subtitle{
+            display: block;
+            overflow: hidden;
+        }
+        .overlayTint{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: khaki;
+            opacity: 0.8;
+        }
+        .overlayText{
+            position: relative;
+        }
+
+
+        .overlay,
+        .subtitle{
+            transition: all 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="toAuto" class="container">
+        <img src="example.png" alt="example image">
+        
+        <div class="overlay">
+            <div class="overlayTint"></div>
+            <div class="overlayText">
+                <h1>Title</h1>
+                <p class="subtitle" auto-transition="height 0 auto" auto-transition-trigger="#toAuto">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores quisquam labore doloribus! Ex voluptas eligendi numquam, assumenda officiis quaerat aperiam.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="fromAuto" class="container">
+        <img src="example.png" alt="example image">
+        
+        <div class="overlay" auto-transition="height auto 100%" auto-transition-trigger="#fromAuto">
+            <div class="overlayTint"></div>
+            <div class="overlayText">
+                <h1>Title</h1>
+                <p class="subtitle">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores quisquam labore doloribus! Ex voluptas eligendi numquam, assumenda officiis quaerat aperiam.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
